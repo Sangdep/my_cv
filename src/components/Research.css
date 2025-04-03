@@ -1,0 +1,153 @@
+.research {
+  width: 100%;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  background-color: #f8f9fa;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.research h2 {
+  font-size: 3rem;
+  margin-bottom: 4rem;
+  text-align: center;
+  color: #000000;
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.research-card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.research-card:hover {
+  transform: translateY(-5px);
+}
+
+.research-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #000000;
+  font-weight: 600;
+}
+
+.research-card p {
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  background-color: #e8f4ff;
+  color: #007bff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+}
+
+.view-project {
+  color: #718096;
+  text-decoration: none;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.view-project:hover {
+  color: #007bff;
+}
+
+.view-project::before {
+  content: "↗";
+  font-size: 1rem;
+}
+
+/* Tablet Large */
+@media (max-width: 1200px) {
+  .research {
+    padding: 3rem 1.5rem;
+  }
+
+  .research-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .research h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .research-card {
+    padding: 1.5rem;
+  }
+
+  .research-card h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .research {
+    padding: 2rem 1rem;
+  }
+
+  .research-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .research h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .research-card p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .research {
+    padding: 1.5rem 1rem;
+  }
+
+  .tags {
+    gap: 0.25rem;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+} 
