@@ -14,12 +14,13 @@
   margin: 0 auto;
   padding: 0 2rem;
   width: 100%;
-  
+  margin-top: -20px;
 }
 
 .hero-content {
   flex: 1;
   padding-right: 4rem;
+  align-self: flex-start;
 }
 
 h1 {
@@ -35,6 +36,7 @@ h1 {
   color: #ffffff;
   line-height: 1.5;
   max-width: 600px;
+  animation: fadeInUp 1.2s ease-out;
 }
 
 .social-links {
@@ -63,12 +65,206 @@ h1 {
   overflow: hidden;
   border: 4px solid #007bff;
   box-shadow: 0 0 20px rgba(0, 123, 255, 0.3);
+  margin-bottom: 20px;
+}
+
+.icon-border {
+  display: flex;
+  justify-content: space-between;
+  max-width: 200px;
+  margin: 0 auto;
 }
 
 .profile-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Floating animation cho avatar */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Container cho các floating elements */
+.hero-image {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+/* Floating circle 1 - phía trên bên phải */
+.hero-image::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -50px;
+  width: 80px;
+  height: 80px;
+  background: rgba(0, 123, 255, 0.3);
+  border-radius: 50%;
+  animation: floatReverse 4s ease-in-out infinite;
+  z-index: 100;
+}
+
+/* Floating circle 2 - phía dưới bên trái */
+.hero-image::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: -50px;
+  width: 100px;
+  height: 100px;
+  background: rgba(0, 212, 255, 0.2);
+  border-radius: 50%;
+  animation: float 5s ease-in-out infinite;
+  z-index: 100;
+}
+
+/* Animation ngược chiều */
+@keyframes floatReverse {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(20px) scale(1.1);
+  }
+}
+
+/* Glowing effect cho border */
+.profile-image {
+  animation: float 3s ease-in-out infinite,
+    glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+  }
+  to {
+    box-shadow: 0 0 40px rgba(0, 123, 255, 0.8);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-image {
+    width: 250px;
+    height: 250px;
+  }
+
+  .hero-image::before {
+    width: 60px;
+    height: 60px;
+    top: -50px;
+    right: -20px;
+  }
+
+  .hero-image::after {
+    width: 80px;
+    height: 80px;
+    bottom: -30px;
+    left: -60px;
+  }
+}
+.icon-tech {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+  align-items: center;
+  max-width: 100%;
+}
+
+.icon-tech img {
+  width: 60px;
+  height: 60px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  animation: fadeInDown 1s ease-out;
+}
+
+.icon-tech img:hover {
+  transform: translateY(-5px) scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+  border-color: #007bff;
+}
+
+/* Animation stagger effect */
+.icon-tech img:nth-child(1) {
+  animation: bounceIn 0.6s ease-out 0.1s both;
+}
+.icon-tech img:nth-child(2) {
+  animation: bounceIn 0.6s ease-out 0.2s both;
+}
+.icon-tech img:nth-child(3) {
+  animation: bounceIn 0.6s ease-out 0.3s both;
+}
+.icon-tech img:nth-child(4) {
+  animation: bounceIn 0.6s ease-out 0.4s both;
+}
+.icon-tech img:nth-child(5) {
+  animation: bounceIn 0.6s ease-out 0.5s both;
+}
+.icon-tech img:nth-child(6) {
+  animation: bounceIn 0.6s ease-out 0.6s both;
+}
+.icon-tech img:nth-child(7) {
+  animation: bounceIn 0.6s ease-out 0.7s both;
+}
+.icon-tech img:nth-child(8) {
+  animation: bounceIn 0.6s ease-out 0.8s both;
+}
+/* animation đã chuyển ra ngoài media query */
+.icon-tech img:nth-child(9) {
+  animation: bounceIn 0.6s ease-out 0.9s both;
+}
+.icon-tech img:nth-child(10) {
+  animation: bounceIn 0.6s ease-out 1s both;
+}
+.icon-tech img:nth-child(11) {
+  animation: bounceIn 0.6s ease-out 1.1s both;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .icon-tech {
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .icon-tech img {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+  }
 }
 
 /* Responsive Design */
@@ -100,4 +296,59 @@ h1 {
     width: 250px;
     height: 250px;
   }
-} 
+
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    animation: fadeInDown 1s ease-out;
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Hiệu ứng gạch chân chạy */
+  .title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(90deg, #00bcd4, #673ab7);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .title:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Subtitle */
+  .subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    animation: fadeInUp 1.2s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

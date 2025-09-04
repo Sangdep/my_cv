@@ -1,5 +1,5 @@
-import React from 'react';
-import './Skills.css';
+import React from "react";
+import "./Skills.css";
 
 const Skills = () => {
   const skillsData = {
@@ -7,20 +7,41 @@ const Skills = () => {
       title: "Backend Development",
       skills: [
         { name: "Java & Spring Boot", level: 95 },
-        { name: "RESTful API", level: 90 },
-        { name: "Caching & Performance Optimization", level: 85 },
-        { name: "Database Management(Sql Server, My Sql)", level: 80 }
-      ]
+        { name: "RESTful API Development", level: 90 },
+        { name: "Database Management (SQL Server, MySQL)", level: 80 },
+        { name: "Spring Security & Authentication", level: 80 },
+        { name: "JPA/Hibernate ORM", level: 85 },
+      ],
+    },
+    program: {
+      title: "Frontend Development",
+      skills: [
+        { name: "React & React Hooks", level: 90 },
+        {
+          name: "CSS Frameworks (Tailwind, Material-UI, Bootstrap)",
+          level: 85,
+        },
+        { name: "RESTful API Integration & Axios", level: 90 },
+        { name: "Responsive Design & Mobile-First", level: 85 },
+        { name: "Testing (Jest, RTL)", level: 75 },
+      ],
     },
     research: {
       title: "System Design & Deployment",
       skills: [
         { name: "Scalable System Architecture", level: 95 },
-        { name: "Cloud Services (AWS, GCP, Azure)", level: 90 },
         { name: "Security & Authentication (JWT, OAuth2)", level: 85 },
-        { name: "Event-Driven Architecture (Kafka, RabbitMQ)", level: 80 }
-      ]
-    }
+        { name: "Event-Driven Architecture (Kafka, RabbitMQ)", level: 80 },
+      ],
+    },
+    others: {
+      title: "Other Skills",
+      skills: [
+        { name: "Git & GitHub/GitLab", level: 90 },
+        { name: "Docker & Containerization", level: 85 },
+        { name: "CI/CD Pipelines (Jenkins, GitHub Actions)", level: 80 },
+      ],
+    },
   };
 
   return (
@@ -37,7 +58,7 @@ const Skills = () => {
                     <span>{skill.name}</span>
                   </div>
                   <div className="skill-bar">
-                    <div 
+                    <div
                       className="skill-progress"
                       style={{ width: `${skill.level}%` }}
                     ></div>
@@ -52,4 +73,4 @@ const Skills = () => {
   );
 };
 
-export default Skills; 
+export default Skills;
